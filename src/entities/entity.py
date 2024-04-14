@@ -81,3 +81,6 @@ class Entity:
     def draw(self) -> None:
         if self.image:
             self.config.screen.blit(self.image, self.rect)
+
+    def get_state(self):
+        return {"x": self.x, "y": self.y, "w": self.w, "h": self.h}

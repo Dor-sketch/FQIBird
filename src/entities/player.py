@@ -165,3 +165,7 @@ class Player(Entity):
                 return True
 
         return False
+
+    def get_state(self):
+        import numpy as np
+        return np.array([self.y, self.vel_y, self.rot, self.crashed])

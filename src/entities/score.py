@@ -36,3 +36,7 @@ class Score(Entity):
         for image in images:
             self.config.screen.blit(image, (x_offset, self.y))
             x_offset += image.get_width()
+
+    def get_state(self):
+        import numpy as np
+        return np.array([self.score])

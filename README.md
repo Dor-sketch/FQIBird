@@ -1,39 +1,23 @@
-[FlapPyBird](https://sourabhv.github.io/FlapPyBird)
-===============
+# FQI Bird: Flappy Q-Learning and Reflex Agent for Flappy Bird
 
-A Flappy Bird Clone made using [python-pygame][pygame]
+This project is a modified version of the original [FlapPyBird](https://sourabhv.github.io/FlapPyBird) game, which now includes basic AI agents designed to autonomously play the game. Modifications to the original game include the addition of a `get_state()` method alongside cool slow-motion and fast-forward features to enhance the fun of training and testing.
 
-> If you are in interested in the old one-file code for the game, you can [find it here][one-file-game]
+## Project Overview
 
-[pygame]: http://www.pygame.org
-[one-file-game]: https://github.com/sourabhv/FlapPyBird/blob/038359dc6122f8d851e816ddb3e7d28229d585e5/flappy.py
+The AI started with a QDN (Q-Network Deep Neural) agent but later transitioned to a combination of a Reflex-approved agent and a Q-Learning agent. This hybrid approach enables the system to identify `Killer Moves` when possible, and otherwise, it relies on the Q-Learning agent to derive the optimal game-playing policy.
 
+### Reflex Agent
 
-Setup (as tested on MacOS)
----------------------------
+The Reflex agent employs a simple heuristic, primarily based on the positions of the bird and the pipes, as well as the bird’s velocity. It searches for potential `Killer Moves` to navigate the game's challenges effectively.
 
-1. Install Python 3 from [here](https://www.python.org/download/releases/) (or use brew/apt/pyenv)
+### Q-Learning Agent
 
-2. Run `make init` (this will install pip packages, use virtualenv or something similar if you don't want to install globally)
+Our Q-Learning agent experiments with various reward functions to optimize performance. After rigorous testing, including time-based rewards and distance-based rewards, the most effective metric has been the absolute distance from the bird to the closest pipe's middle point.
 
-3. Run `make` to run the game. Run `DEBUG=True make` to see rects and coords
+## Feedback and Contributions
 
-4. Use <kbd>&uarr;</kbd> or <kbd>Space</kbd> key to play and <kbd>Esc</kbd> to close the game.
+If you have any ideas or need further information, please feel free to contact me via my LinkedIn profile: [Dor Pascal](https://www.linkedin.com/in/dor-pascal/).
 
-5. Optionally run `make web` to run the game in the browser (`pygbag`).
+## Acknowledgments
 
-Notable forks
--------------
-- [FlapPyBlink Blink to control the bird](https://github.com/sero583/FlappyBlink)
-- [FlappyBird Fury Mode](https://github.com/Cc618/FlapPyBird)
-- [FlappyBird Model Predictive Control](https://github.com/philzook58/FlapPyBird-MPC)
-- [FlappyBird OpenFrameworks Port](https://github.com/TheLogicMaster/ofFlappyBird)
-- [FlappyBird On Quantum Computing](https://github.com/WingCode/QuFlapPyBird)
-
-Made something awesome from FlapPyBird? Add it to the list :)
-
-
-Demo
-----------
-
-https://user-images.githubusercontent.com/2307626/130682424-9254b32d-efe0-406e-a6ea-3fb625a2df5e.mp4
+Credit for the original FlapPyBird game goes to its creator, [sourabhv](https://www.github.com/sourabhv). Please refer to the original game at the link provided above. This project is a derivative and does not claim original ownership of the underlying game concept.

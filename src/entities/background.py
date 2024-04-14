@@ -12,3 +12,6 @@ class Background(Entity):
             config.window.width,
             config.window.height,
         )
+
+    def get_state(self):
+        return {"x": self.x, "y": self.y, "w": self.w, "h": self.h}

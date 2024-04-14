@@ -14,6 +14,10 @@ class Pipe(Entity):
         self.x += self.vel_x
         super().draw()
 
+    def get_state(self):
+        import numpy as np
+        return np.array([self.x, self.y, self.w, self.h])
+
 
 class Pipes(Entity):
     upper: List[Pipe]
@@ -102,3 +106,20 @@ class Pipes(Entity):
         )
 
         return upper_pipe, lower_pipe
+
+    def get_state(self):
+        import numpy as np
+        # # return the closest upper pipe
+        # # if list empty teturn middle of screen
+        # if not self.upper:
+        #     return np.array([50, 250])
+        # closest_upper_pipe = self.upper[0]
+        # # if closest_upper_pipe.x < 30:
+        # #     closest_upper_pipe = self.upper[1]
+        # first = np.array([closest_upper_pipe.x, closest_upper_pipe.y])
+        # if len(self.upper) > 1:
+        #     second = np.array([self.upper[1].x, self.upper[1].y])
+        # else:
+        #     second = np.array([50, 250])
+        # return np.concatenate([first, second], axis=0)
+        return np.array([pipe.get_state() for pipe in self.upper + self.lower]).reshape(-1)

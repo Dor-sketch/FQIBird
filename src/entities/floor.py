@@ -14,3 +14,8 @@ class Floor(Entity):
     def draw(self) -> None:
         self.x = -((-self.x + self.vel_x) % self.x_extra)
         super().draw()
+
+    def get_state(self):
+        import numpy as np
+        return np.array([self.x, self.y, self.w, self.h])
+    
